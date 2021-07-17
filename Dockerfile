@@ -12,6 +12,8 @@ RUN apk update && \
     sed -i 's/#include "k_range.hpp"/#include <cstdint>\n#include "k_range.hpp"/g' src/common/sequence/seq_common.hpp && \
     # u_int64_t is not standard, but uint64_t is
     sed -i 's/u_int64_t/uint64_t/g' src/common/sequence/seq_common.hpp && \
+    # Alpine strerror_r is messed up (https://stackoverflow.com/questions/41953104/strerror-r-is-incorrectly-declared-on-alpine-linux)
+    sed -i 's/char \*message = strerror_r/result = strerror_r/g' ext/src/cppformat/format.cc && \
     PREFIX=/usr/local ./spades_compile.sh && \
     cd .. && \
     rm -rf SPAdes-*
