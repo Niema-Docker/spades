@@ -4,7 +4,7 @@ MAINTAINER Niema Moshiri <niemamoshiri@gmail.com>
 
 # install SPAdes
 RUN apk update && \
-    apk add bash bzip2-dev g++ libexecinfo-dev make python3 zlib-dev && \ #musl-dev && \
+    apk add bash bzip2-dev g++ libexecinfo-dev make musl-dev python3 zlib-dev && \
     wget -qO- "https://github.com/ablab/spades/releases/download/v3.15.2/SPAdes-3.15.2.tar.gz" | tar -zx && \
     cd SPAdes-* && \
     # Alpine needs <stdint.h> to be included to have int32_t defined. I made a pull request to SPAdes, so remove this in the future
