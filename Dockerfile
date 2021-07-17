@@ -17,12 +17,3 @@ RUN apk update && \
     PREFIX=/usr/local ./spades_compile.sh && \
     cd .. && \
     rm -rf SPAdes-*
-    
-    
-    wget -qO- "https://mafft.cbrc.jp/alignment/software/mafft-7.475-without-extensions-src.tgz" | tar -zx && \
-    cd mafft-*/core && \
-    make clean && \
-    make && \
-    make install && \
-    cd ../.. && \
-    rm -rf mafft-*
