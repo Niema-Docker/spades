@@ -1,6 +1,5 @@
 # Minimal Docker image for SPAdes using Debian base
 FROM debian:stable-slim
-MAINTAINER Niema Moshiri <niemamoshiri@gmail.com>
 
 # install SPAdes
 RUN apt-get update && \
